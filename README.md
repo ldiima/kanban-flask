@@ -1,5 +1,4 @@
-# kanban-flask
-
+## Kanban
 
 This Kanban application:
 
@@ -8,5 +7,5 @@ This Kanban application:
 - [ ] Move any item from any state ("To do", "Doing", or "Done") to any other state.
 
 
-## App Walkthrough GIF
+#### App Walkthrough GIF
 
