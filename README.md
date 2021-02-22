@@ -9,4 +9,4 @@ This Kanban application:
 
 #### App Walkthrough GIF
 
-<img src="http://g.recordit.co/tu8FZ5hGCt.gif" width=250><br>
+<img src="http://g.recordit.co/tu8FZ5hGCt.gif" width=1000><br>
