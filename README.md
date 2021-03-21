@@ -1,19 +1,20 @@
-## Kanban
+# Kanban Board 
 A Kanban board is a simple form of task management. Every task that you add can be in one of three states:
 - To Do
 - Doing
 - Done
 
-This Kanban application:
+## User Stories
+The following functionalities are completed:
 
-- [x] Creates a new item in the "To do" state.
-- [x] Delete an item when it is done.
-- [x] Move any item from any state ("To do", "Doing", or "Done") to any other state.
+- [x] User can create a new item in the "To do" state.
+- [x] User can delete an item when it is done.
+- [x] User can move any item from any state ("To do", "Doing", or "Done") to any other state.
 
 
 #### App Walkthrough GIF
-
-<img src="http://g.recordit.co/UOm6wNzYkC.gif"<br>
+Here's a walkthrough of implemented user stories:
+<img src='http://g.recordit.co/UOm6wNzYkC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
           
 ## Requirements
 `$ brew install python3`
