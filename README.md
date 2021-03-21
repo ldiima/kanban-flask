@@ -30,6 +30,7 @@ Here's a walkthrough of implemented user stories:
 `$ python3 -m venv .venv`
 
 3. Activate virtual environment
+
 `$ source .venv/bin/activate`
 
 If you use Windows:
@@ -38,16 +39,17 @@ If you use Windows:
 
 4. Install dependencies
 
-`<$ pip3 install -r requirements.txt`
+`$ pip3 install -r requirements.txt`
 
 5. Run the server
-```$ export FLASK_APP=app.py
-flask run
+`$ export FLASK_APP=app.py
+flask run`
 
 ## Unit tests
 To run unit tests:
+
 ```$ python3 -m venv venv_unit
 $ source venv_unit/bin/activate
 $ pip3 install -r requirements.txt
 $ export DATABASE_URL='sqlite:///tasks.db'
-$ python3 tests.py
+$ python3 tests.py```
