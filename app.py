@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///tasks.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 
 class Todo(db.Model):
@@ -21,6 +21,11 @@ class TodoForm(FlaskForm):
     title = StringField(label=('Your task:'), validators=[DataRequired()])
     state = SelectField(u'Current Status:', choices=[('To Do'), ('Doing'), ('Done')])
     submit = SubmitField('Add task to Kanban')
+
+# create database for users and tasks
+db.create_all()
+# generate entries for the database
+db.session.commit()
 
 #to render all tasks
 @app.route("/", methods=["GET", "POST"])
