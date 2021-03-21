@@ -14,7 +14,7 @@ The following functionalities are completed:
 
 #### App Walkthrough GIF
 Here's a walkthrough of implemented user stories:
-<img src='http://g.recordit.co/UOm6wNzYkC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/ccFWcp5fdw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
           
 ## Requirements
 `$ brew install python3`
