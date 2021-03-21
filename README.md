@@ -27,10 +27,10 @@ Here's a walkthrough of implemented user stories:
 
 2. Create virtual environment
 
-`$ python3 -m venv venv`
+`$ python3 -m venv .venv`
 
 3. Activate virtual environment
-`$ source venv/bin/activate`
+`$ source .venv/bin/activate`
 
 If you use Windows:
 
@@ -40,9 +40,9 @@ If you use Windows:
 
 `<$ pip3 install -r requirements.txt`
 
-5. Start the server
-
-`$ python3 app.py`
+5. Run the server
+```$ export FLASK_APP=app.py
+flask run
 
 ## Unit tests
 To run unit tests:
