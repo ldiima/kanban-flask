@@ -22,9 +22,9 @@ class TodoForm(FlaskForm):
     state = SelectField(u'Current Status:', choices=[('To Do'), ('Doing'), ('Done')])
     submit = SubmitField('Add task to Kanban')
 
-# create database for users and tasks
+# create database for tasks
 db.create_all()
-# generate entries for the database
+# commit entries for the database
 db.session.commit()
 
 #to render all tasks
