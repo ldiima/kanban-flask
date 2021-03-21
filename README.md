@@ -13,7 +13,7 @@ This Kanban application:
 
 #### App Walkthrough GIF
 
-<img src="http://g.recordit.co/UOm6wNzYkC.gif><br>
+<img src="http://g.recordit.co/UOm6wNzYkC.gif"<br>
           
 ## Requirements
 `$ brew install python3`
