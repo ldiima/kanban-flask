@@ -21,29 +21,18 @@ Here's a walkthrough of implemented user stories:
 
 ## How to run the app
 
-1. Install virtual environment
+```
+$ pip3 install virtualenv
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip3 install -r requirements.txt
+$ export FLASK_APP=app.py
+$ flask run
+```
 
-`$ pip3 install virtualenv`
-
-2. Create virtual environment
-
-`$ python3 -m venv .venv`
-
-3. Activate virtual environment
-
-`$ source .venv/bin/activate`
-
-If you use Windows:
+If you use Windows, to activate virtual environment:
 
 `$ venv\Scripts\activate`
-
-4. Install dependencies
-
-`$ pip3 install -r requirements.txt`
-
-5. Run the server
-`$ export FLASK_APP=app.py
-flask run`
 
 ## Unit tests
 To run unit tests:
