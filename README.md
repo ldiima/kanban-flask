@@ -37,8 +37,10 @@ If you use Windows, to activate virtual environment:
 ## Unit tests
 To run unit tests:
 
-```$ python3 -m venv venv_unit
+```
+$ python3 -m venv venv_unit
 $ source venv_unit/bin/activate
 $ pip3 install -r requirements.txt
 $ export DATABASE_URL='sqlite:///tasks.db'
-$ python3 tests.py```
+$ python3 tests.py
+```
