@@ -20,7 +20,7 @@ class Todo(db.Model):
 class TodoForm(FlaskForm):
     title = StringField(label=('Your task:'), validators=[DataRequired()])
     state = SelectField(u'Current Status:', choices=[('To Do'), ('Doing'), ('Done')])
-    submit = SubmitField('Add the new task to Kanban')
+    submit = SubmitField('Add task to Kanban')
 
 #to render all tasks
 @app.route("/", methods=["GET", "POST"])

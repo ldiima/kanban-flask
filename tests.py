@@ -7,7 +7,8 @@ TEST_DB = 'tests.db'
 
 class BasicTests(unittest.TestCase):
 
-    # execute before each test (set up & teardown)
+    # execute before each test 
+    # set up 
     def setUp(self):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
@@ -19,10 +20,9 @@ class BasicTests(unittest.TestCase):
 
         self.assertEqual(app.debug, False)
 
-    # execute after each test
+    # teardown
     def tearDown(self):
         pass
-
 
 #TESTS
     # check index page route
