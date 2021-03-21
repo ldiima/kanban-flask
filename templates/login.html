@@ -1,31 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-</head>
+{% block navigation %}
+<ul class="nav-items">
+    <li>
+        <a href="#">About</a>
+    </li>
+    <li>
+        <a href="#">Contact</a>
+    </li>
+    <li>
+        <a href="#">Help</a>
+    </li>
+    <li>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+    </li>
+</ul>
+{% endblock %}
 
-<body>
-    <div style="margin-top: 50px;" class="ui container">
+{% block content %}
 
-        <h1 class="ui center aligned header">Sign up</h1>
+<div class="header-container">
+    <div class="wrapper">
+        <header>
+            <div class="center">
+                <h1 class="LOGO_login">Plink</h1>
+                <form action="{{ url_for('login') }}" method="POST">
+                    {{ form.hidden_tag() }}
 
-        <form class="ui form" action="" method="POST">
-            <div class="field">
-                <label for="title">Please sign up</label>
-                <input type="text" name="title" placeholder="Enter a task...">
-                <br>
+                    <div class="field">
+                        {{ form.username(size=32) }}
+                        {{ form.username.label }}
+                    </div>
+                    <div class="field">
+                        {{ form.password(size=32) }}
+                        {{ form.password.label }}
+                    </div>
 
-                <button class="ui blue button" type="submit">Add</button>
+                    <div class="checkbox">
+                        {{ form.remember_me() }}
+                        {{ form.remember_me.label }}
+
+                    </div>
+                    <div class="content">
+                        <div class="pass-link">
+                            <!-- TODO: Make forgot password work -->
+                            <a href="#">Forgot password?</a></div>
+                    </div>
+                    <div class="field">
+                        {{ form.submit() }}
+                    </div>
+
+                </form>
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
             </div>
-        </form>
 
-       
+        </header>
     </div>
-</body>
+</div>
 
-</html>
+{% endblock %}
