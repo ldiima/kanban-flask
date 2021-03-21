@@ -1,0 +1,101 @@
+body {
+    background-color: #edf6f9 ;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    color: #006d77;
+    font-family: "Roboto", "Helvetica Neue";
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+}
+
+form {
+    font-family: "Roboto", "Helvetica Neue";
+    font-weight: bold;
+    text-align: left;
+    color:#006d77;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+input {
+    text-align: left;
+    font-family: "Roboto", "Helvetica Neue";
+    width: 70%;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#submit-button {
+    width: auto;
+    height: 30px;
+    background-color: #83c5be;
+    font-family: "Roboto", "Helvetica Neue";
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    color: #edf6f9;
+    margin-top: 20px;
+    padding: 5px;
+    display: block;
+    border-radius: 5px;
+
+}
+#submit-button:hover {
+    background-color: #006d77;
+}
+.board {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+#first-container {
+    background-color: #83c5be;
+}
+#second-container {
+    background-color: #83c5be;
+}
+#third-container {
+    background-color: #83c5be;
+}
+.container {
+    width: 20%;
+    clear: right;
+    margin: 20px;
+    border-radius: 5px;
+    display: block;
+}
+
+.card {
+    background-color: #edf6f9;
+    margin: 20px;
+    padding: 5px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+#delete-button {
+    float: right;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+    color: red;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+#right-button {
+    float: right;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 50px;
+    color:#006d77;
+    padding-right: 10px;
+}

@@ -4,74 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanban Board</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"> 
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js">
-</script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <script src="https://use.fontawesome.com/ef8b4869a8.js"></script>
 </head>
-
 <body>
-
-    <div style="margin-top: 50px; margin-bottom: 50;" class="ui container">
-
-    <h1 class="ui center aligned header">Dima's Kanban Board</h1>
-
-    <form class="ui form" action="/add" method="POST">
-        <div class="field">
-            <label for="title">What do you want to do? </label>
-            <input style="margin-bottom: 10px;" type="text" minlength = "1" required name="title" placeholder="Enter a task...">
-            <button class="ui blue button" type="submit">Add</button>
+    <h1>Dima's Kanban Board</h1>
+        <div>
+            <form method="POST" action="/add">
+                {% if 'csrf_token' in form %}
+                {{form.csrf_token}}
+                {% endif %}
+                <div>
+                    <label for="">{{ form.title.label }}</label>
+                    {{ form.title }}
+                </div>
+                <div>
+                    <label for="">Current Status:</label>
+                    {{ form.state }}
+                    {{ form.submit(id="submit-button")}}
+                </div>
+            </form>
         </div>
-    </form>
-
-    
-    <div class="ui three column grid">
-        <div class="row">
-            <div class="column">
-                <br>
-                <div class="ui teal inverted raised center aligned segment">
-                    <h1> To Do</h1>
-                    {% for task in task_list%}
-                    <div class="ui segment">
-                        <p class="ui small header"> {{task.title}}</p>
-                    
-                        <!-- {% if task.complete == False%}
-                        <span class="ui gray label"> Not Complete</span>
-                    
-                        {% else %}
-                        <span class="ui green label"> Completed</span>
-                    
-                        {% endif %}
-                        <br>
-                        <br>
-                    
-                        <a class="ui purple label" href="/update/{{ task.id }}">Update</a> -->
-                        <a class="ui red label" href="/delete/{{ task.id }}">Delete</a>
-                    </div>
-                    {% endfor%}
-                </div>
+    <div class="board">
+        <div class='container' id="first-container">
+            <h3>To Do</span></h3>
+            <!-- show a To Do task  -->
+            {% for todo in todo_list%}
+            {% if todo.state == "To Do"%}
+            <div class="card">
+                <span>{{todo.title}}</span>
+                <!-- delete and update status buttons -->
+                <a href="/delete/{{todo.id}}"><span class="fa fa-trash" id="delete-button"></a>
+                <a href="/update_right/{{todo.id}}"><span class="fa fa-arrow-right" id="right-button"></a>
             </div>
-            <div class="column">
-                <br>
-                <div class="ui teal inverted raised center aligned segment">
-                    <h1> Doing</h1>
-
-                </div>
-            </div>
-
-            <div class="column">
-                <br>
-                <div class="ui teal inverted raised center aligned segment">
-                    <h1> Done</h1>
-                </div>
-            </div>
-            </div>
-
-
+            {% endif %}
+            {% endfor %}
+            <!-- end -->
         </div>
-    </div>
-
-            
-
+        <div class='container' id="second-container">
+            <h3>Doing</h3>
+            <!-- show a Doing task  -->
+            {% for todo in todo_list%}
+            {% if todo.state == "Doing"%}
+            <div class="card">
+                <span>{{todo.title}}</span>
+                <!-- delete and update status buttons -->
+                <a href="/delete/{{todo.id}}"><span class="fa fa-trash" id="delete-button"></a>
+                <a href="/update_right/{{todo.id}}"><span class="fa fa-arrow-right" id="right-button"></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <!-- end -->
+        </div>
+        <div class='container' id="third-container">
+            <h3>Done</h3>
+            <!-- show a Done task  -->
+            {% for todo in todo_list%}
+            {% if todo.state == "Done"%}
+            <div class="card">
+                <span>{{todo.title}}</span>
+                <!-- delete button  -->
+                <a href="/delete/{{todo.id}}"><span class="fa fa-trash" id="delete-button"></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <!-- end -->
+        </div>
     </div>
 </body>
 </html>

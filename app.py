@@ -6,9 +6,9 @@ from wtforms.validators import DataRequired, Length
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///tasks.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 
 class Todo(db.Model):
@@ -18,9 +18,9 @@ class Todo(db.Model):
 
 #get user input (using FlaskForm)
 class TodoForm(FlaskForm):
-    title = StringField(label=('What are you gonna do?:'), validators=[DataRequired()])
-    state = SelectField(u'Select State', choices=[('To Do'), ('Doing'), ('Done')])
-    submit = SubmitField('Add')
+    title = StringField(label=('Your task:'), validators=[DataRequired()])
+    state = SelectField(u'Current Status:', choices=[('To Do'), ('Doing'), ('Done')])
+    submit = SubmitField('Add the new task to Kanban')
 
 #to render all tasks
 @app.route("/", methods=["GET", "POST"])
@@ -55,17 +55,6 @@ def update_right(todo_id):
         todo.state = "Doing"
     elif todo.state == "Doing":
         todo.state = "Done"
-    db.session.commit()
-    return redirect(url_for("index"))
-
-#to move a task to the left (to update status)
-@app.route("/update_left/<int:todo_id>")
-def update_left(todo_id):
-    todo = Todo.query.filter_by(id=todo_id).first()
-    if todo.state == "Done":
-        todo.state = "Doing"
-    elif todo.state == "Doing":
-        todo.state = "To Do"
     db.session.commit()
     return redirect(url_for("index"))
 
