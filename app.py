@@ -11,15 +11,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = ''
 db = SQLAlchemy(app)
 
-class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100))
-    complete = db.Column(db.Boolean)
-
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
-    state = db.Column(db.String(20))
+    state = db.Column(db.String(10))
 
 #get user input (using FlaskForm)
 class TodoForm(FlaskForm):
@@ -30,13 +25,11 @@ class TodoForm(FlaskForm):
 #to render all tasks
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Standard `contact` form."""
     form = TodoForm()
     todo_list = Todo.query.all()
-    return render_template(
-        "base.html", form=form, todo_list=todo_list)
+    return render_template("base.html", form=form, todo_list=todo_list)
 
-# to add a new task
+#to add a new task
 @app.route('/add', methods=['POST', 'GET'])
 def new_task():
     title = request.form.get("title")
@@ -73,35 +66,6 @@ def update_left(todo_id):
         todo.state = "Doing"
     elif todo.state == "Doing":
         todo.state = "To Do"
-    db.session.commit()
-    return redirect(url_for("index"))
-    
-
-# @app.route("/register")
-# def register(task_id):
-#     form = RegistrationForm()
-#     return render_template('register.html', title='Register', form=form)
-
-# @app.route("/login")
-# def login(task_id):
-#     form = LoginForm()
-#     return render_template('login.html', title='Login', form=form)
-
-
-
-@app.route('/')
-def index():
-    #show all tasks
-    task_list = Task.query.all()
-    # print(task_list)
-    return render_template('base.html', task_list=task_list)
-
-@app.route("/add", methods=["POST"])
-def add():
-    #add new item
-    title=request.form.get("title")
-    new_task = Task(title=title, complete=False)
-    db.session.add(new_task)
     db.session.commit()
     return redirect(url_for("index"))
 
