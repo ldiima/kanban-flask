@@ -17,6 +17,11 @@ class Task(db.Model):
     title = db.Column(db.String(100))
     complete = db.Column(db.Boolean)
 
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    state = db.Column(db.String(20))
+    
 # @app.route("/register")
 # def register(task_id):
 #     form = RegistrationForm()
